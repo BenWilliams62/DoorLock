@@ -3,8 +3,11 @@
 ## Description
 A pin-code door lock, with admin panel to add new users
 
-## motivation
+## Motivation
 Create a full GUI system, that is suitable for use in real buildings
+
+## Technologies
+- C++
 
 ## Progress
 - CLI for Admin panel (v0.0.1b)
