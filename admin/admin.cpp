@@ -13,13 +13,18 @@ TODO:
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include "functions.hpp"
+
+using json = nlohmann::json;
 
 // main user interface 
 
 int main()
 {
     int reply;
+
     // ask whether to add a new user or delete a user
     while (true)
     {

@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
-
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include "functions.hpp"
+
+using json = nlohmann::json;
 
 
 /*
@@ -56,8 +59,18 @@ int new_pin()
 //add user to database
 void add_user(std::string name, int code)
 {
+    // open json
+    std::ifstream i("./admin/storage.json");
+    json j;
+    i >> j;
+
     // add data to a database
+    j[name] = code;
+
+    // close json
     std::cout << "added\n";
+    std::ofstream o("./admin/storage.json");
+    o << std::setw(4) << j << std::endl;
 };
 
 /*
@@ -100,25 +113,36 @@ void delete_user()
     std::cin >> user;
     std::cout << "\n";
 
-    // check database for the username, and return the pin
-
     // ask for id
     std::cout << "Please enter the pin for this user:\n";
     std::cin >> pin_user;
     std::cout << "\n";
 
+    // check database for the username, and return the pin
+    //open database
+    std::ifstream i("./admin/storage.json");
+    json j;
+    i >> j;
+
+    pin_db = j[user];
+
+
     // check id against the database, delete user if correct
     if (pin_user == pin_db)
     {
         // delete user
+        j.erase(user);
         std::cout << "User deleted";
         
     }
     else
     {
         std::cout << "The details entered were not correct, please try again\n";
-        delete_user();
     };
 
+    // close database
+    std::cout << "added\n";
+    std::ofstream o("./admin/storage.json");
+    o << std::setw(4) << j << std::endl;
 
 };
