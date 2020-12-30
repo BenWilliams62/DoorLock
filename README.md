@@ -16,7 +16,7 @@ Create a full GUI system, that is suitable for use in real buildings
 
 
 ## In the pipeline
-- create GUI
+- create GUI (cross-platfrom)
 - add database to connect admin and client side program
 - test
 
