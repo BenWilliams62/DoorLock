@@ -132,7 +132,7 @@ void delete_user()
     {
         // delete user
         j.erase(user);
-        std::cout << "User deleted";
+        std::cout << "User deleted\n";
         
     }
     else
@@ -141,7 +141,6 @@ void delete_user()
     };
 
     // close database
-    std::cout << "added\n";
     std::ofstream o("./admin/storage.json");
     o << std::setw(4) << j << std::endl;
 
