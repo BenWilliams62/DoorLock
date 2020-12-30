@@ -143,5 +143,5 @@ void delete_user()
     // close database
     std::ofstream o("./admin/storage.json");
     o << std::setw(4) << j << std::endl;
-
+    std::cout << "\n";
 };
