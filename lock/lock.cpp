@@ -13,9 +13,11 @@ TODO:
 
 #include <iostream>
 #include <string>
-#include <vector>
-
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include "functions.hpp"
+
+using json = nlohmann::json;
 
 int main()
 {

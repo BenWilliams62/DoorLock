@@ -1,54 +1,12 @@
 #include <iostream>
 #include <string>
-#include <vector>
-
+#include <fstream>
+#include <nlohmann/json.hpp>
 #include "functions.hpp"
 
-/*
-    create an object
-*/
-// for adding data
-void User::add_data(std::string name_entry, int pin_entry)
-{
-    pin = pin_entry;
-    name = name_entry;
-};
-
-// for getting pin
-int get_pin()
-{
-    return pin;
-};
-
-// for getting name
-std::string get_name()
-{
-    return name;
-};
+using json = nlohmann::json;
 
 
-/*
-    for adding names from database into objects
-*/
-
-User find_user()
-{
-    // within database, take a row, and turn it into an object
-};
-
-std::vector<User> get_users()
-{
-    std::vector<User> users;
-    // go through every row in database
-    // for loop{
-    user = find_user()
-    // }
-    // from each row, create an object i.e. find_user()
-    users.pushback(new_user);
-    // add this new User object to a vector of users
-
-    return users;
-};
 /*
     unlock door
 */
@@ -77,7 +35,16 @@ void unlock()
     int break_code;
 
     // get list of users
-    users = get_users();
+    // open json
+    std::ifstream i("./admin/storage.json");
+    json j;
+    i >> j;
+
+    // close json
+    std::cout << "added\n";
+    std::ofstream o("./admin/storage.json");
+    o << std::setw(4) << j << std::endl;
+    
 
     // loop for continous usage
     while (true)
@@ -89,30 +56,27 @@ void unlock()
         if (pin_entry == 873283)
         {
             // call for an update of the of the system
-            user = get_users();
+            // open json
+            std::ifstream i("./admin/storage.json");
+            i >> j;
+
+            // close json
+            std::cout << "added\n";
+            std::ofstream o("./admin/storage.json");
+            o << std::setw(4) << j << std::endl;
+                    
         }
         else
         {
-            for (int i = 0; i <= user.size(); i++)
-            {
-                if (users[i].get_pin() == pin_entry)
-                {
-                    // unlock door
+            
+            // if inputted code is a value in json, then find the name (key)
 
+                // std::cout << "Welcome, " << name << "\n";
+                // open door
 
-                    // output welcome message
-                    std::cout << "Welcome, " << users[i].get_name() << "!\n";
-
-                    // break the loop
-                    break_code = 1;
-                    break;
-                };
-            };
-            if (break_code != 1)
-            {
-                std::cout << "Wrong password, please try again\n";
-            };
-            break_code = 0;
+            
+            // else
+                // std::cout << "Incorrect pin\n";
         };
     };
     
