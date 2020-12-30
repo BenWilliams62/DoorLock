@@ -31,8 +31,8 @@ void unlock()
 {
     // initialise variables
     int pin_entry;
-    std::vector<User> users;
     int break_code;
+    std::string name;
 
     // get list of users
     // open json
@@ -61,23 +61,43 @@ void unlock()
             i >> j;
 
             // close json
-            std::cout << "added\n";
             std::ofstream o("./admin/storage.json");
             o << std::setw(4) << j << std::endl;
+
+            // confirmation
+            std::cout << "updated\n";
                     
         }
         else
         {
-            
-            // if inputted code is a value in json, then find the name (key)
+            for (json::iterator it = j.begin(); it != j.end(); ++it) 
+            {
+                std::cout << *it << '\n';
+                if (*it == pin_entry)
+                {
+                    // set name
+                    name = it.key();
 
-                // std::cout << "Welcome, " << name << "\n";
-                // open door
+                    // print message
+                    std::cout << "Welcome, " << name << "\n";
+                    
+                    // open door
+                    // Will be constructed when I have the parts
 
+                    // exit code
+                    break_code = 1;
+
+                    break;
+                };
+            };
+            if (break_code == 0)
+            {
+                std::cout << "Incorrect code\n";
+            };
             
-            // else
-                // std::cout << "Incorrect pin\n";
         };
+        pin_entry = 0;
+        break_code = 0;
     };
     
     

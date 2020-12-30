@@ -22,7 +22,7 @@ using json = nlohmann::json;
 int main()
 {
 
-    unlock()
+    unlock();
 
     return 0;
 };
