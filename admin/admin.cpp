@@ -32,6 +32,7 @@ int main()
         std::cout << "Which action would you like to take?\n(only enter the number value)\n";
         std::cout << "1.\tAdd new user\n";
         std::cout << "2.\tDelete user\n";
+        std::cout << "3.\tLook up Users\n";
         std::cout << "\n\n";
         std::cin >> reply;
 
@@ -43,6 +44,10 @@ int main()
         else if (reply == 2)
         {
             delete_user();
+        }
+        else if (reply == 3)
+        {
+            look_up_users();
         }
         else
         {

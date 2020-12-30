@@ -24,6 +24,7 @@ void delete_user();
 
 
 /*
-    review recent entrances
-    might not use this
+    view data
 */
+
+void look_up_users();

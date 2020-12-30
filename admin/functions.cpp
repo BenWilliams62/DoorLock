@@ -145,3 +145,26 @@ void delete_user()
     o << std::setw(4) << j << std::endl;
     std::cout << "\n";
 };
+
+void look_up_users()
+{
+    // open database
+    std::ifstream i("./admin/storage.json");
+    json j;
+    i >> j;
+
+    // close database
+    std::ofstream o("./admin/storage.json");
+    o << std::setw(4) << j << std::endl;
+
+    // make space
+    std::cout << "\n\n";
+
+    // print all users and their codes
+    for (json::iterator it = j.begin(); it != j.end(); ++it)
+    {
+        std::cout << it.key() << "\t" << it.value() << "\n";
+    };
+    // make space
+    std::cout << "\n\n";
+};
