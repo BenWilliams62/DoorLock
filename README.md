@@ -8,6 +8,8 @@ Create a full GUI system, that is suitable for use in real buildings
 
 ## Technologies
 - C++
+- wxWidgets
+- database (most likely mongoDB, but subject to change)
 
 ## Progress
 - CLI for Admin panel (v0.0.1b)
