@@ -1,7 +1,7 @@
 # DoorLock
 
 ## Description
-A pin-code door lock, with admin panel to add new users
+A pin-code door lock, with admin panel to add new users. I am not actively developing this project.
 
 ## Motivation
 Create a full GUI system, that is suitable for use in real buildings
@@ -17,10 +17,9 @@ Create a full GUI system, that is suitable for use in real buildings
 - developmental data storing (in .json file)(v0.0.1b)
 
 
-## In the pipeline
-- create GUI (wxWidgets
+## In the future
+- create GUI (Qt5)
 - add database to connect admin and client side program
-- test
 
 ## How to
 ### flags
